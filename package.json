@@ -10,9 +10,9 @@
   },
   "main": "dist/index.js",
   "scripts": {
-    "dev": "tsx watch src/index.ts",
-    "start": "node dist/index.js",
-    "build": "tsc -p tsconfig.json",
+    "dev": "node init && tsx watch src/index.ts",
+    "start": "node init && node dist/index.js",
+    "build": "node init && tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "lockfile:check": "node scripts/check-lockfile.mjs",
     "lockfile:reproduce": "node scripts/check-lockfile.mjs --reproduce",
@@ -30,6 +30,7 @@
     "audit": "tsx src/audit-cli.ts",
     "audit:report": "tsx src/audit-cli.ts",
     "audit:check": "tsx src/audit-check-cli.ts",
+    "analytics:export": "tsx src/analytics-export-cli.ts",
     "seed:cursor": "tsx src/dev/seedCursor.ts",
     "cursor": "node dist/cursor-cli.js",
     "replay": "tsx src/replay-cli.ts",
@@ -58,7 +59,8 @@
   "dependencies": {
     "@stellar/stellar-sdk": "^17.4.0",
     "dotenv": "^18.0.10",
-    "grammy": "^1.46.0"
+    "grammy": "^1.46.0",
+    "node-fetch": "^3.3.2"
   },
   "devDependencies": {
     "@types/node": "^26.6.6",
